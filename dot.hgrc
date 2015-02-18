@@ -1,0 +1,33 @@
+# This is a Mercurial configuration file.
+[ui]
+username = Che-Liang Chiou <clchiou@gmail.com>
+
+[extensions]
+color =
+extdiff =
+hgview =
+mq =
+pager =
+record =
+
+[alias]
+view = hgview
+
+[extdiff]
+cmd.vimdiff = vim
+opts.vimdiff = -d
+cmd.melddiff = meld
+
+[pager]
+pager = LESS='FRSX' less
+
+[diff]
+git = 1
+showfunc = 1
+unified = 8
+
+[hooks]
+# Prevent "hg pull" if MQ patches are applied.
+prechangegroup.mq-no-pull = ! hg qtop > /dev/null 2>&1
+# Prevent "hg push" if MQ patches are applied.
+preoutgoing.mq-no-push = ! hg qtop > /dev/null 2>&1

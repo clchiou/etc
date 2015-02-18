@@ -1,0 +1,19 @@
+[color]
+	ui = auto
+[core]
+	autocrlf = false
+	editor = vim
+	excludesfile = /home/clchiou/.gitexcludes
+	filemode = false
+	pager = less -+$LESS -FRSX
+[format]
+	pretty = oneline
+[log]
+	abbrevCommit = true
+[pager]
+	status = true
+[push]
+	default = simple
+[user]
+	email = clchiou@gmail.com
+	name = Che-Liang Chiou
