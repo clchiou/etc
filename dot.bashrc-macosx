@@ -1,0 +1,31 @@
+# Make bash more usable in Mac OS X.
+
+# Basic configurations.
+if [ -f /etc/bashrc ]; then
+  source /etc/bashrc
+fi
+
+# Add aliases.
+if [ -f ~/.bash_aliases ]; then
+  source ~/.bash_aliases
+fi
+# And more aliases.
+alias la='ls -a'
+alias ll='ls -al'
+alias grep='grep --color=auto'
+
+# Make ls colorized.
+export CLICOLOR=1
+
+# Add command-line completion.
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Find where your Java is installed.
+if [ -f /usr/libexec/java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
+# Fancy bash promot (need git bash completion).
+export PS1='\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$(__git_ps1 ":\[\033[01;33m\]%s\[\033[00m\]")\$ '
