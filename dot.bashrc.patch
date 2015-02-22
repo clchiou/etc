@@ -1,5 +1,5 @@
---- dot.bashrc.orig	2012-02-14 23:26:47.340410570 +0800
-+++ dot.bashrc	2012-02-14 23:26:55.190410468 +0800
+--- /etc/skel/.bashrc	2014-04-08 18:03:15.000000000 -0700
++++ .bashrc	2015-02-21 21:14:20.796605106 -0800
 @@ -43,7 +43,7 @@
  # uncomment for a colored prompt, if the terminal has the capability; turned
  # off by default to not distract the user: the focus in a terminal window
@@ -9,15 +9,24 @@
  
  if [ -n "$force_color_prompt" ]; then
      if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-@@ -50,9 +50,9 @@
+@@ -57,9 +57,9 @@
  fi
  
  if [ "$color_prompt" = yes ]; then
 -    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$(__git_ps1 ":\[\033[01;33m\]%s\[\033[00m\]")\$ '
++    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]$(__git_ps1 ":\[\033[01;33m\]%s\[\033[00m\]")$(__hg_ps1 ":\[\033[01;33m\]%s\[\033[00m\]")\$ '
  else
 -    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(__git_ps1 ":%s")\$ '
++    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(__git_ps1 ":%s")$(__hg_ps1 ":%s")\$ '
  fi
  unset color_prompt force_color_prompt
  
+@@ -112,3 +112,8 @@
+     . /etc/bash_completion
+   fi
+ fi
++
++# Install more completion features.
++if [ -f ~/etc/bash_completion ]; then
++  . ~/etc/bash_completion
++fi

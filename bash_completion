@@ -1,0 +1,29 @@
+__hg_ps1() {
+  local printf_format="${1:- (%s)}"
+
+  local repo="$(pwd)"
+  while [ "${repo}" != '/' ]; do
+    if [ -d "${repo}/.hg" ]; then
+      break
+    fi
+    repo="$(dirname ${repo})"
+  done
+  if [ "${repo}" = '/' ]; then
+    return
+  fi
+
+  local branch='default'
+  if [ -f "${repo}/.hg/branch" ]; then
+    branch="$(cat ${repo}/.hg/branch)"
+  fi
+
+  local bookmark='(none)'
+  if [ -f "${repo}/.hg/bookmarks.current" ]; then
+    bookmark="$(cat ${repo}/.hg/bookmarks.current)"
+    if [ -z "${bookmark}" ]; then
+      bookmark='(none)'
+    fi
+  fi
+
+  printf -- "$printf_format" "${branch}:${bookmark}"
+}
