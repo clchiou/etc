@@ -6,7 +6,7 @@ __hg_ps1() {
     if [ -d "${repo}/.hg" ]; then
       break
     fi
-    repo="$(dirname ${repo})"
+    repo="$(dirname "${repo}")"
   done
   if [ "${repo}" = '/' ]; then
     return
