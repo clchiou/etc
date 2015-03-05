@@ -29,7 +29,7 @@ vnoremap <Up> gk
 
 " Useful search command
 " See http://vim.wikia.com/wiki/Find_in_files_within_Vim
-map <F4> :lgetexpr system('ack-grep --nocolor "\b' . expand("<cword>") . '\b"') <Bar> lwindow <CR>
+map <F4> :lgetexpr system('ack --nocolor "\b' . expand("<cword>") . '\b"') <Bar> lwindow <CR>
 
 function GitGrep(regex)
   lgetexpr system('git grep -n "' . a:regex . '"')
@@ -37,7 +37,7 @@ function GitGrep(regex)
 endfunction
 
 function AckGrep(regex)
-  lgetexpr system('ack-grep --nocolor "' . a:regex . '"')
+  lgetexpr system('ack --nocolor "' . a:regex . '"')
   lwindow
 endfunction
 
