@@ -27,7 +27,12 @@ msg-template='{msg_id}:{line:3d},{column:2d}: {msg} ({symbol})'
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable=
+disable=bad-builtin,
+        fixme,
+        global-statement,
+        missing-docstring,
+        star-args,
+        too-few-public-methods,
 
 
 [FORMAT]
