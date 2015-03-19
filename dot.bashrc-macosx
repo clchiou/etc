@@ -5,6 +5,10 @@ if [ -f /etc/bashrc ]; then
   source /etc/bashrc
 fi
 
+if [ -d "${HOME}/bin" ]; then
+  export PATH="${HOME}/bin:$PATH"
+fi
+
 # Add aliases.
 if [ -f ~/.bash_aliases ]; then
   source ~/.bash_aliases
