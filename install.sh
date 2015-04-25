@@ -25,7 +25,7 @@ RCFILES+=" .screenrc"
 RCFILES+=" .vimrc"
 for rcfile in ${RCFILES}; do
   src="${ETC_DIR%%/}/dot${rcfile}"
-  if [ -e "${rcfile}" ]; then
+  if [ -f "${rcfile}" ]; then
     echo "Skip ${rcfile}"
   else
     echo "Link ${src}"
@@ -33,7 +33,9 @@ for rcfile in ${RCFILES}; do
   fi
 done
 
-read -p "Patch .bashrc? [yN] " yes
-if [ "${yes}" = "y" ]; then
+if cmp -s /etc/skel/.bashrc .bashrc; then
+  echo "Patch .bashrc"
   patch < "${ETC_DIR%%/}/dot.bashrc.patch"
+else
+  echo "Different from /etc/skel/.bashrc. Skip patching .bashrc"
 fi
