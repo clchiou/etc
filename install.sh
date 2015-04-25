@@ -22,6 +22,7 @@ RCFILES+=" .hgrc"
 RCFILES+=" .jslintrc"
 RCFILES+=" .pylintrc"
 RCFILES+=" .screenrc"
+RCFILES+=" .tmux.conf"
 RCFILES+=" .vimrc"
 for rcfile in ${RCFILES}; do
   src="${ETC_DIR%%/}/dot${rcfile}"
