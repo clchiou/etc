@@ -126,11 +126,13 @@ map <C-K> :pyf ${HOME}/.vim/clang-format.py<CR>
 imap <C-K> <ESC>:pyf ${HOME}/.vim/clang-format.py<CR>i
 
 " Advanced python syntax highlight option
-let python_highlight_builtin_objs = 1
+let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
-let python_highlight_space_errors = 1
 let python_highlight_string_formatting = 1
 let python_highlight_string_format = 1
 let python_highlight_string_templates = 1
 let python_highlight_indent_errors = 1
 let python_highlight_space_errors = 1
+let python_highlight_doctests = 1
+let python_print_as_function = 1
+let python_highlight_file_headers_as_comments = 1
