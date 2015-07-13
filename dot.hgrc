@@ -19,6 +19,7 @@ opts.vimdiff = -d
 cmd.melddiff = meld
 
 [pager]
+attend =
 pager = LESS='FRSX' less
 
 [diff]
