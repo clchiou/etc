@@ -40,3 +40,20 @@ if cmp -s /etc/skel/.bashrc .bashrc; then
 else
   echo "Different from /etc/skel/.bashrc. Skip patching .bashrc"
 fi
+
+# Install Vim plugins.
+
+if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
+  echo "Install Vundle"
+  mkdir -p "${HOME}/.vim/bundle"
+  git clone "https://github.com/gmarik/Vundle.vim.git" \
+    "${HOME}/.vim/bundle/Vundle.vim"
+  vim +PluginInstall +qall
+fi
+
+if [ ! -f "${HOME}/.vim/syntax/python.vim" ]; then
+  echo "Install python.vim"
+  mkdir -p "${HOME}/.vim/syntax"
+  wget -O "${HOME}/.vim/syntax/python.vim" \
+    "http://www.vim.org/scripts/download_script.php?src_id=21056"
+fi

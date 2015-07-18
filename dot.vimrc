@@ -1,3 +1,21 @@
+""" Begin configure Vundle
+
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'rust-lang/rust.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+""" End configure Vundle
+
+
 " Configure mouse
 " set ttymouse=xterm2
 set mouse=a
@@ -56,10 +74,6 @@ imap <C-l> <ESC>:tabnext<CR>
 highlight TabLineSel term=bold,underline cterm=bold,underline ctermfg=7 ctermbg=0
 highlight TabLine term=bold cterm=bold
 highlight clear TabLineFill
-
-" Turn-on filetype
-filetype indent on
-filetype plugin on
 
 " Override default filetype association
 autocmd BufNewFile,BufRead *.rs set filetype=rust
