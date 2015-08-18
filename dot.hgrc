@@ -20,7 +20,7 @@ cmd.melddiff = meld
 
 [pager]
 attend =
-ignore = qnew qrefresh record
+ignore = merge qnew qrefresh record
 pager = LESS='FRSX' less
 
 [diff]
