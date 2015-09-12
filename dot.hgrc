@@ -20,7 +20,8 @@ cmd.melddiff = meld
 
 [pager]
 attend =
-ignore = merge qnew qrefresh record
+# NOTE: You must include all aliases (like 'ci' of 'commit').
+ignore = commit ci merge qnew qrefresh record
 pager = LESS='FRSX' less
 
 [diff]
