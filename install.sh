@@ -46,7 +46,7 @@ fi
 if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
   echo "Install Vundle"
   mkdir -p "${HOME}/.vim/bundle"
-  git clone "https://github.com/gmarik/Vundle.vim.git" \
+  git clone "https://github.com/VundleVim/Vundle.vim.git" \
     "${HOME}/.vim/bundle/Vundle.vim"
   vim +PluginInstall +qall
 fi

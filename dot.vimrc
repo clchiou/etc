@@ -6,9 +6,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'rust-lang/rust.vim'
+
+Plugin 'scrooloose/nerdtree'
 
 call vundle#end()
 filetype plugin indent on
@@ -131,6 +133,9 @@ function IndentUseTab()
   set softtabstop=0
   set shiftwidth=8
 endfunction
+
+" By default we use 2-space to indent python codes
+autocmd BufNewFile,BufRead *.yaml,*.yml call IndentUse2Space()
 
 " By default we use 4-space to indent python codes
 autocmd BufNewFile,BufRead *.py call IndentUse4Space()
