@@ -19,8 +19,8 @@ filetype plugin indent on
 
 
 " Configure mouse
-" set ttymouse=xterm2
 set mouse=a
+set ttymouse=xterm2
 
 " Set correct background (most of time)
 set background=dark
