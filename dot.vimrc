@@ -82,6 +82,9 @@ autocmd BufNewFile,BufRead *.rs set filetype=rust
 autocmd BufNewFile,BufRead *.tex set filetype=tex
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
+" Add `async` and `await` keyword
+autocmd FileType python syn keyword pythonStatement async await
+
 " Highlight trailing whitespace and lines longer columns.
 highlight LongLine cterm=bold,underline
 highlight WhitespaceEOL ctermbg=DarkYellow guibg=DarkYellow
