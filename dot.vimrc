@@ -8,6 +8,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'hdima/python-syntax'
+
 Plugin 'rust-lang/rust.vim'
 
 Plugin 'scrooloose/nerdtree'
@@ -82,9 +84,6 @@ autocmd BufNewFile,BufRead *.rs set filetype=rust
 autocmd BufNewFile,BufRead *.tex set filetype=tex
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
-" Add `async` and `await` keyword
-autocmd FileType python syn keyword pythonStatement async await
-
 " Highlight trailing whitespace and lines longer columns.
 highlight LongLine cterm=bold,underline
 highlight WhitespaceEOL ctermbg=DarkYellow guibg=DarkYellow
@@ -137,24 +136,17 @@ function IndentUseTab()
   set shiftwidth=8
 endfunction
 
-" By default we use 2-space to indent python codes
+" By default we use 2-space to indent YAML files
 autocmd BufNewFile,BufRead *.yaml,*.yml call IndentUse2Space()
 
-" By default we use 4-space to indent python codes
+" By default we use 4-space to indent Python codes
 autocmd BufNewFile,BufRead *.py call IndentUse4Space()
 
 " clang-format integration
 map <C-K> :pyf ${HOME}/.vim/clang-format.py<CR>
 imap <C-K> <ESC>:pyf ${HOME}/.vim/clang-format.py<CR>i
 
-" Advanced python syntax highlight option
-let python_highlight_builtins = 1
-let python_highlight_exceptions = 1
-let python_highlight_string_formatting = 1
-let python_highlight_string_format = 1
-let python_highlight_string_templates = 1
-let python_highlight_indent_errors = 1
-let python_highlight_space_errors = 1
-let python_highlight_doctests = 1
-let python_print_as_function = 1
-let python_highlight_file_headers_as_comments = 1
+" Python syntax highlight option
+let python_highlight_all = 1
+autocmd FileType python syn clear pythonBoolean
+autocmd FileType python syn keyword pythonStatement True False
