@@ -8,11 +8,11 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'hdima/python-syntax'
-
 Plugin 'rust-lang/rust.vim'
 
 Plugin 'scrooloose/nerdtree'
+
+Plugin 'vim-python/python-syntax'
 
 call vundle#end()
 filetype plugin indent on
@@ -148,5 +148,8 @@ imap <C-K> <ESC>:pyf ${HOME}/.vim/clang-format.py<CR>i
 
 " Python syntax highlight option
 let python_highlight_all = 1
-autocmd FileType python syn clear pythonBoolean
-autocmd FileType python syn keyword pythonStatement True False
+let python_highlight_builtin_funcs = 0
+let python_highlight_class_vars = 0
+let python_highlight_operators = 0
+hi def link pythonBoolean Statement
+hi def link pythonNone Statement
