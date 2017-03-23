@@ -27,3 +27,11 @@ __hg_ps1() {
 
   printf -- "$printf_format" "${branch}:${bookmark}"
 }
+
+# Import bash_completion.d
+if [[ -d "${HOME}/etc/bash_completion.d" ]]; then
+  for __i in $(LC_ALL=C command ls "${HOME}/etc/bash_completion.d"); do
+    source "${HOME}/etc/bash_completion.d/${__i}"
+  done
+  unset __i
+fi

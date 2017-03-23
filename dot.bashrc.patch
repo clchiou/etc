@@ -1,5 +1,5 @@
---- /etc/skel/.bashrc	2014-04-08 18:03:15.000000000 -0700
-+++ .bashrc	2015-03-26 21:55:50.086631348 -0700
+--- /etc/skel/.bashrc	2015-08-31 19:27:45.000000000 -0400
++++ .bashrc	2017-03-22 20:55:15.943782393 -0400
 @@ -43,7 +43,7 @@
  # uncomment for a colored prompt, if the terminal has the capability; turned
  # off by default to not distract the user: the focus in a terminal window
@@ -21,15 +21,10 @@
  fi
  unset color_prompt force_color_prompt
  
-@@ -112,3 +112,11 @@
+@@ -115,3 +115,6 @@
      . /etc/bash_completion
    fi
  fi
-+
-+# Install more completion features.
-+if [ -f ~/etc/bash_completion ]; then
-+  . ~/etc/bash_completion
-+fi
 +
 +# Set up less.
 +export LESS=-FRSX

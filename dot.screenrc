@@ -1,1 +1,0 @@
-caption always " %-w%{+b }%n %t%{-b }%+w%-6=%0c"

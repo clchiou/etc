@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ "$(pwd)" != "${HOME}" ]; then
-  echo "You must run install.sh under your home directory"
-  exit 1
-fi
-
 abspath() {
   local curdir="$(pwd)"
   cd "${1}"
@@ -12,31 +7,37 @@ abspath() {
   cd "${curdir}"
 }
 
-ETC_DIR="$(abspath "$(dirname $0)")"
-ETC_DIR="${ETC_DIR#${HOME}/}"
+# Compute ${ETC} before we `cd` to ${HOME}
+ETC="$(abspath "$(dirname $0)")"
+ETC="${ETC#${HOME}/}"
 
-RCFILES=".bash_aliases"
-RCFILES+=" .gitconfig"
-RCFILES+=" .gitexcludes"
-RCFILES+=" .hgrc"
-RCFILES+=" .jslintrc"
-RCFILES+=" .pylintrc"
-RCFILES+=" .screenrc"
-RCFILES+=" .tmux.conf"
-RCFILES+=" .vimrc"
-for rcfile in ${RCFILES}; do
-  src="${ETC_DIR%%/}/dot${rcfile}"
-  if [ -f "${rcfile}" ]; then
-    echo "Skip ${rcfile}"
+cd "${HOME}"
+
+DOTFILES=(
+  .bash_aliases
+  .bash_completion
+  .gitconfig
+  .gitexcludes
+  .hgrc
+  .jslintrc
+  .pylintrc
+  .tmux.conf
+  .vimrc
+)
+
+for dotfile in "${DOTFILES[@]}"; do
+  src="${ETC%%/}/dot${dotfile}"
+  if [ -f "${dotfile}" ]; then
+    echo "Skip ${dotfile}"
   else
     echo "Link ${src}"
-    ln -s "${ETC_DIR%%/}/dot${rcfile}" "${rcfile}"
+    ln -s "${ETC%%/}/dot${dotfile}" "${dotfile}"
   fi
 done
 
 if cmp -s /etc/skel/.bashrc .bashrc; then
   echo "Patch .bashrc"
-  patch < "${ETC_DIR%%/}/dot.bashrc.patch"
+  patch < "${ETC%%/}/dot.bashrc.patch"
 else
   echo "Different from /etc/skel/.bashrc. Skip patching .bashrc"
 fi
@@ -49,11 +50,4 @@ if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
   git clone "https://github.com/VundleVim/Vundle.vim.git" \
     "${HOME}/.vim/bundle/Vundle.vim"
   vim +PluginInstall +qall
-fi
-
-if [ ! -f "${HOME}/.vim/syntax/python.vim" ]; then
-  echo "Install python.vim"
-  mkdir -p "${HOME}/.vim/syntax"
-  wget -O "${HOME}/.vim/syntax/python.vim" \
-    "http://www.vim.org/scripts/download_script.php?src_id=21056"
 fi
