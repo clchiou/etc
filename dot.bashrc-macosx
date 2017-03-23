@@ -20,6 +20,8 @@ alias grep='grep --color=auto'
 
 # Make ls colorized.
 export CLICOLOR=1
+# Look better on dark background.
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Add command-line completion.
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
