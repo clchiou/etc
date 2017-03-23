@@ -5,14 +5,10 @@ username = Che-Liang Chiou <clchiou@gmail.com>
 [extensions]
 color =
 extdiff =
-hgview =
 mq =
 pager =
 rebase =
 record =
-
-[alias]
-view = hgview
 
 [extdiff]
 cmd.vimdiff = vim
