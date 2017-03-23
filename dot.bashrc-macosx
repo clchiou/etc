@@ -27,8 +27,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 fi
 
 # Install more completion features.
-if [ -f ~/etc/bash_completion ]; then
-  . ~/etc/bash_completion
+if [ -f ~/.bash_completion ]; then
+  . ~/.bash_completion
 fi
 
 # Find where your Java is installed.

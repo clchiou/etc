@@ -16,6 +16,7 @@ cd "${HOME}"
 DOTFILES=(
   .bash_aliases
   .bash_completion
+  .bash_completion.d
   .gitconfig
   .gitexcludes
   .hgrc
