@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 abspath() {
   local curdir="$(pwd)"
@@ -28,7 +28,7 @@ DOTFILES=(
 
 for dotfile in "${DOTFILES[@]}"; do
   src="${ETC%%/}/dot${dotfile}"
-  if [ -f "${dotfile}" ]; then
+  if [[ -e "${dotfile}" ]]; then
     echo "Skip ${dotfile}"
   else
     echo "Link ${src}"
@@ -45,7 +45,7 @@ fi
 
 # Install Vim plugins.
 
-if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
+if [[ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]]; then
   echo "Install Vundle"
   mkdir -p "${HOME}/.vim/bundle"
   git clone "https://github.com/VundleVim/Vundle.vim.git" \
