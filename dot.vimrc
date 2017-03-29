@@ -53,22 +53,9 @@ vnoremap <Up> gk
 
 " Useful search command
 " See http://vim.wikia.com/wiki/Find_in_files_within_Vim
-map <F4> :lgetexpr system('git grep -n "\<' . expand("<cword>") . '\>"') <Bar> lwindow <CR>
-
-function GitGrep(regex)
-  lgetexpr system('git grep -n "' . a:regex . '"')
-  lwindow
-endfunction
-
-function AckGrep(regex)
-  lgetexpr system('ack --nocolor "' . a:regex . '"')
-  lwindow
-endfunction
-
-function Pep8()
-  cgetexpr system('pep8 ' . @%)
-  cwindow
-endfunction
+map <F4> :lgetexpr system('ag --vimgrep "\b' . expand("<cword>") . '\b"') <Bar> lwindow <CR>
+command! -nargs=1 AG lgetexpr system('ag --vimgrep <q-args>') | lwindow
+command! -nargs=1 GG lgetexpr system('git grep --line-number <q-args>') | lwindow
 
 " Shortcuts for tab maneuver
 map  <C-h> :tabprev<CR>
