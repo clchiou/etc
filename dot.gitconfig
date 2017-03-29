@@ -1,3 +1,6 @@
+[alias]
+	pretty-branch=for-each-ref --sort=-committerdate --format='%(color:red)%(objectname:short) %(color:green)%(committerdate:relative) %(color:reset)%(refname:short) %(color:blue)%(authorname)' refs/heads/
+	pretty-log=log --graph --pretty=format:'%C(bold red)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches=*
 [color]
 	ui = auto
 [core]
