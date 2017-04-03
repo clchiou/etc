@@ -6,7 +6,6 @@
 [core]
 	autocrlf = false
 	editor = vim
-	excludesfile = /home/clchiou/.gitexcludes
 	filemode = false
 	pager = less -+$LESS -FRSX
 [format]
