@@ -3,7 +3,8 @@ export SSH_AGENT_FILE="${HOME}/.ssh/agent-stuff.${HOSTNAME}"
 
 # Try to copy the existing agent stuff into the environment
 if [[ -r "${SSH_AGENT_FILE}" ]]; then
-  source "${SSH_AGENT_FILE}" && ssh-add -l > /dev/null && return
+  # Test if ssh-agent is running already with `ssh-add -l`
+  source "${SSH_AGENT_FILE}" && ssh-add -l > /dev/null 2>&1 && return
 fi
 
 # Start ssh-agent, and put stuff into the environment
