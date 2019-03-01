@@ -64,9 +64,12 @@ map  <C-l> :tabnext<CR>
 imap <C-l> <ESC>:tabnext<CR>
 
 " Set tab style that fits my eye
-highlight TabLineSel term=bold,underline cterm=bold,underline ctermfg=7 ctermbg=0
-highlight TabLine term=bold cterm=bold
+highlight clear TabLineSel
+highlight clear TabLine
 highlight clear TabLineFill
+highlight TabLineSel term=bold,underline cterm=bold,underline gui=bold,underline
+highlight TabLine term=underline cterm=underline gui=underline ctermfg=7
+highlight TabLineFill term=underline cterm=underline gui=underline
 
 " Override default filetype association
 autocmd BufNewFile,BufRead *.rs set filetype=rust
