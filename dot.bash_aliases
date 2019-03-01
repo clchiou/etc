@@ -9,6 +9,3 @@ alias vn='vi +NERDTree'
 mq() {
   local CMD="${1}"; shift; (set -x; hg ${CMD} --mq "$@")
 }
-
-# Workaround?
-alias tmux='TERM=linux tmux'
