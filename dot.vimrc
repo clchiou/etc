@@ -63,6 +63,9 @@ imap <C-h> <ESC>:tabprev<CR>
 map  <C-l> :tabnext<CR>
 imap <C-l> <ESC>:tabnext<CR>
 
+" Override spell check style (the default is too bright)
+highlight SpellBad ctermbg=1
+
 " Set tab style that fits my eye
 highlight clear TabLineSel
 highlight clear TabLine
