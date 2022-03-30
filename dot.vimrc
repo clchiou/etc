@@ -30,6 +30,7 @@ set hlsearch
 set wildmenu
 
 " More intuitive way to open a new window (to me)
+set splitbelow
 set splitright
 
 " More intuitive way to move around (to me)
@@ -131,6 +132,7 @@ autocmd BufNewFile,BufRead *.py call IndentUse4Space()
 " Python syntax highlight option
 let python_highlight_all = 1
 let python_highlight_builtin_funcs = 0
+let python_highlight_func_calls = 0
 let python_highlight_class_vars = 0
 let python_highlight_operators = 0
 hi def link pythonBoolean Statement
