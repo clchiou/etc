@@ -22,6 +22,7 @@ DOTFILES=(
   .hgrc
   .jslintrc
   .pylintrc
+  .style.yapf
   .tmux.conf
   .vimrc
 )
