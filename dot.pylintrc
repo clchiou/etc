@@ -28,11 +28,31 @@ msg-template='{msg_id}:{line:3d},{column:2d}: {msg} ({symbol})'
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
 disable=bad-builtin,
+        bad-continuation,
+        broad-except,
+        duplicate-code,
         fixme,
         global-statement,
         missing-docstring,
+        no-else-return,
+        not-an-iterable,
+        not-callable,
+        protected-access,
+        raising-bad-type,
         star-args,
         too-few-public-methods,
+        too-many-arguments,
+        too-many-branches,
+        too-many-instance-attributes,
+        too-many-locals,
+        too-many-public-methods,
+        too-many-return-statements,
+        wildcard-import,
+        # All style issues are delegated to yapf.
+        bad-whitespace,
+        invalid-name,
+        # TODO: Remove the following in the future.
+        consider-using-f-string,
 
 
 [TYPECHECK]
