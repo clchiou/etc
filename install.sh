@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
 
-abspath() {
-  local curdir="$(pwd)"
-  cd "${1}"
-  pwd
-  cd "${curdir}"
-}
-
 # Compute ${ETC} relative to ${HOME} before we `cd` to ${HOME}
-ETC="$(abspath "$(dirname $0)")"
+ETC="$(realpath "$(dirname $0)")"
 ETC="${ETC#${HOME}/}"
 
 cd "${HOME}"
@@ -32,7 +25,7 @@ for dotfile in "${DOTFILES[@]}"; do
     echo "Skip ${dotfile}"
   else
     echo "Link ${src}"
-    ln -s "${ETC%%/}/dot${dotfile}" "${dotfile}"
+    ln -s "${src}" "${dotfile}"
   fi
 done
 

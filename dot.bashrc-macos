@@ -1,4 +1,4 @@
-# Make bash more usable in Mac OS X.
+# Make bash more usable in macOS.
 
 # Basic configurations.
 if [ -f /etc/bashrc ]; then
