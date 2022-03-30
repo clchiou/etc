@@ -1,26 +1,17 @@
 """ Begin configure Vundle
-
 set nocompatible
 filetype off
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'Valloric/YouCompleteMe'
-
-Plugin 'rust-lang/rust.vim'
-
 Plugin 'scrooloose/nerdtree'
-
+" Syntax highlighters.
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'rust-lang/rust.vim'
 Plugin 'vim-python/python-syntax'
-
 call vundle#end()
 filetype plugin indent on
-
 """ End configure Vundle
-
 
 " Configure mouse
 set mouse=a
@@ -144,12 +135,3 @@ let python_highlight_class_vars = 0
 let python_highlight_operators = 0
 hi def link pythonBoolean Statement
 hi def link pythonNone Statement
-
-" YouCompleteMe
-" Key mappings (use C-o/C-i to jump backward/forward in histroy)
-nnoremap <C-y>d :YcmCompleter GoTo<CR>
-nnoremap <C-y>r :YcmCompleter GoToReferences<CR>
-" Set menu color
-highlight Pmenu ctermfg=15 ctermbg=0
-" Close preview window ASAP
-let g:ycm_autoclose_preview_window_after_completion = 1
