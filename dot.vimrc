@@ -4,9 +4,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 " Syntax highlighters.
-Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'vim-python/python-syntax'
 call vundle#end()
