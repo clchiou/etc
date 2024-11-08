@@ -1,14 +1,5 @@
---- /etc/skel/.bashrc	2015-08-31 19:27:45.000000000 -0400
-+++ .bashrc	2017-03-22 20:55:15.943782393 -0400
-@@ -43,7 +43,7 @@
- # uncomment for a colored prompt, if the terminal has the capability; turned
- # off by default to not distract the user: the focus in a terminal window
- # should be on the output of commands, not on the prompt
--#force_color_prompt=yes
-+force_color_prompt=yes
- 
- if [ -n "$force_color_prompt" ]; then
-     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+--- /etc/skel/.bashrc	2024-03-31 16:41:03.000000000 +0800
++++ .bashrc	2024-11-09 00:51:32.240080002 +0800
 @@ -57,9 +57,9 @@
  fi
  
