@@ -74,8 +74,10 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 highlight LongLine cterm=bold,underline
 highlight WhitespaceEOL ctermbg=DarkYellow guibg=DarkYellow
 
-" Highlight lines longer than 79 columns.
-autocmd BufWinEnter,WinEnter * let w:m0=matchadd('LongLine', '\%>79v.\+', -1)
+" Highlight lines longer than 79 columns for Python.
+autocmd BufWinEnter,WinEnter *.py let w:m0=matchadd('LongLine', '\%>79v.\+', -1)
+" Highlight lines longer than 100 columns for Rust.
+autocmd BufWinEnter,WinEnter *.rs let w:m0=matchadd('LongLine', '\%>100v.\+', -1)
 
 " Highlight trailing spaces.
 " This little dance suppresses whitespace that has just been typed.
