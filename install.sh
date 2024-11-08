@@ -9,11 +9,7 @@ cd "${HOME}"
 # Create symlinks for dot files
 DOTFILES=(
   .bash_aliases
-  .bash_completion
-  .bash_completion.d
   .gitconfig
-  .hgrc
-  .jslintrc
   .pylintrc
   .style.yapf
   .tmux.conf
