@@ -34,6 +34,15 @@ else
   ln -s "../${ETC%%/}/git" ".config/git"
 fi
 
+# Create symlink from ~/.cargo/config.toml
+mkdir -p ".cargo"
+if [[ -e ".cargo/config.toml" ]]; then
+  echo "Skip .cargo/config.toml"
+else
+  echo "Link .cargo/config.toml"
+  ln -s "../${ETC%%/}/dot.cargo/config.toml" ".cargo/config.toml"
+fi
+
 # Patch ~/.bashrc
 if cmp -s /etc/skel/.bashrc .bashrc; then
   echo "Patch .bashrc"
