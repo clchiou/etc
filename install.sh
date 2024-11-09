@@ -17,6 +17,8 @@ readonly DOTFILES=(
 
   .cargo/config.toml
   .config/git
+
+  .bashrc.d
 )
 for dotfile in "${DOTFILES[@]}"; do
   if [[ -e "${dotfile}" ]]; then

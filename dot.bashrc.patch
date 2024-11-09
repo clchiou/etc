@@ -1,5 +1,5 @@
 --- /etc/skel/.bashrc	2024-03-31 16:41:03.000000000 +0800
-+++ .bashrc	2024-11-09 00:51:32.240080002 +0800
++++ .bashrc	2024-11-09 17:58:22.756876947 +0800
 @@ -57,9 +57,9 @@
  fi
  
@@ -12,10 +12,22 @@
  fi
  unset color_prompt force_color_prompt
  
-@@ -115,3 +115,6 @@
+@@ -115,3 +115,18 @@
      . /etc/bash_completion
    fi
  fi
 +
 +# Set up less.
 +export LESS=-FRSX
++
++rc_dir="${HOME}/.bashrc.d"
++if [[ -d "${rc_dir}" && -r "${rc_dir}" && -x "${rc_dir}" ]]; then
++    for i in "${rc_dir}"/*.sh; do
++        [[ -f "${i}" && -r "${i}" ]] && . "${i}"
++    done
++fi
++unset rc_dir i
++
++#
++# NOTE: Changes below should be moved to ~/.bashrc.d.
++#
